@@ -1,3 +1,3 @@
 #!/bin/sh
 
-./compile.sh; ./run.sh > image.ppm; open image.ppm
+./compile.sh && ./run.sh > image.ppm && open image.ppm
