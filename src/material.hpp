@@ -66,7 +66,7 @@ public:
         double sin_theta = sqrt(1 - (cos_theta * cos_theta));
         bool cannot_refract = (refraction_ratio * sin_theta) > 1.;
         vec3 direction;
-        if (cannot_refract)
+        if (cannot_refract || reflectance(cos_theta, refraction_ratio) > random_double())
         {
             direction = reflect(unit_direction, rec.normal);
         }
@@ -80,6 +80,13 @@ public:
 
 private:
     double ir;
+
+    static double reflectance(double cosine, double ref_idx)
+    {
+        auto r0 = (1 - ref_idx) / (1 + ref_idx);
+        r0 = r0 * r0;
+        return r0 + (1 - r0) * pow(1 - cosine, 5);
+    }
 };
 
 #endif
