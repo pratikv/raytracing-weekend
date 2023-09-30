@@ -17,6 +17,11 @@ int main()
 	cam.image_width = 400;
 	cam.samples_per_pixel = 100;
 	cam.max_depth = 50;
+	// cam.look_from = point3(-2, 2, 1);
+	cam.look_from = point3(0, 0, 0);
+	cam.look_at = point3(0, 0, -1);
+	cam.vup = vec3(0, 1, 0);
+	cam.vfov = 90;
 
 	auto material_ground = make_shared<lamabertian>(color(0.8, 0.8, 0.0));
 	// auto material_center = make_shared<dielectric>(1.5);
@@ -32,6 +37,12 @@ int main()
 	world.add(make_shared<sphere>(point3(-1., 0., -1.), 0.5, material_left));
 	world.add(make_shared<sphere>(point3(-1., 0., -1.), -0.4, material_left));
 	world.add(make_shared<sphere>(point3(1., 0., -1.), 0.5, material_right));
+	// auto R = cos(pi / 4);
+	// auto material_left = make_shared<lamabertian>(color(0., 0., 1.));
+	// auto material_right = make_shared<lamabertian>(color(1., 0., 0.));
+
+	// world.add(make_shared<sphere>(point3(-R, 0., -1.), R, material_left));
+	// world.add(make_shared<sphere>(point3(R, 0., -1.), R, material_right));
 
 	cam.render(world);
 
