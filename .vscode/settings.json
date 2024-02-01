@@ -1,5 +1,6 @@
 {
-    "files.associations": {
-        "limits": "cpp"
-    }
+  "files.associations": {
+    "limits": "cpp",
+    "random": "cpp"
+  }
 }

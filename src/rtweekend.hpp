@@ -35,5 +35,6 @@ inline double random_double(double min, double max)
 #include "interval.hpp"
 #include "ray.hpp"
 #include "vec.hpp"
+#include "aabb.hpp"
 
 #endif
